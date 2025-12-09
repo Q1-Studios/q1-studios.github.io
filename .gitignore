@@ -1,0 +1,6 @@
+# General (OS-specific)
+[Dd]esktop.ini
+.DS_Store
+
+# IDE-specific
+.idea/
