@@ -157,6 +157,24 @@ a.socials-itch:hover:after {
     content: "Itch.io";
 }
 
+a.socials-github {
+    background-color: #ffffff;
+}
+
+.socials a.socials-github svg {
+    fill: #000000;
+}
+
+a.socials-github:hover {
+    background-color: #cccccc;
+    color: #000000;
+}
+
+a.socials-github:hover:after {
+    content: "GitHub";
+
+}
+
 .socials a svg {
     fill: #ffffff;
     width: 20px;
