@@ -172,7 +172,18 @@ a.socials-github:hover {
 
 a.socials-github:hover:after {
     content: "GitHub";
+}
 
+a.socials-youtube {
+    background-color: #ff0033;
+}
+
+a.socials-youtube:hover {
+    background-color: #c10029;
+}
+
+a.socials-youtube:hover:after {
+    content: "YouTube";
 }
 
 .socials a svg {
