@@ -3,9 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/q1_circle.png">
     <title>Q1 Studios</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
 </head>
 <body>
-    <h1>Q1 Studios</h1>
+    <main>
+        <section id="q1-big">
+            <div class="container">
+                <div>
+                    <img src="assets/q1_circle.png" alt="Q1 Logo">
+                    <h1>Q1 Studios</h1>
+                    <p>
+                        A bunch of students who make games.<br>
+                        Always learning. Always seeking to create something exciting.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>About us</h2>
+            <p>
+                We're a small team of passionate computer science students building games in their free time.
+            </p>
+            <div class="team-box">
+                <div class="team-member">
+                    <img src="assets/q1_circle.png" alt="Seal Profile">
+                    <div class="team-name">Seal</div>
+                    <div class="team-skills">
+                        <span class="skill-coding">Coding</span>
+                        <span class="skill-art">Art</span>
+                    </div>
+                    <div class="team-desc">
+                        50% 3D Artist, 50% Mad Scientist, 100% Seal.
+                        Boasting natural buoyancy and a skill set in 3D Art that rivals Leonardo da Vinci
+                        (if da Vinci was a god-tier shitposter), Seal never backs down from tackling a challenging project.
+                        At Q1, he's a force to be reckoned with, pushing both visuals and collateral damage to their maximum.
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="assets/q1_circle.png" alt="Cucu Profile">
+                    <div class="team-name">Cucu</div>
+                    <div class="team-skills">
+                        <span class="skill-coding">Coding</span>
+                        <span class="skill-music-sfx">Music & SFX</span>
+                    </div>
+                    <div class="team-desc">
+                        Cucu is a botanical wonder, running entirely on spite and way too little sleep.
+                        When he gets excited about something, nothing except for the laws of physics
+                        (i.e. hitting him with a brick) can stop him.
+                        Cucu also composes music and beats his expensive microphone up with a stick for the perfect clicking sound.
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="assets/q1_circle.png" alt="Portar Profile">
+                    <div class="team-name">Portar</div>
+                    <div class="team-skills">
+                        <span class="skill-coding">Coding</span>
+                        <span class="skill-art">Art</span>
+                    </div>
+                    <div class="team-desc">
+                        If you're looking for a swiss army knife, look no further than Portar!
+                        Having an excessive technical background, Portar gladly takes on any challenge, from code
+                        to 2D art and 3D modelling.
+                        The fact that he is (by and large) not delusional adds a valuable trait to the Q1 team.
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="assets/q1_circle.png" alt="Wolphi Profile">
+                    <div class="team-name">Wolphi</div>
+                    <div class="team-skills">
+                        <span class="skill-coding">Coding</span>
+                    </div>
+                    <div class="team-desc">
+                        Wolphi wrangles both frontends and backends without fear.
+                        He's the only real industry veteran at Q1 who has already excessively experienced The Horrors™ of employment,
+                        and we're preeeetty sure he's close to retirement. But until he gets his senior citizen card,
+                        he codes awesome stuff and supplies the team with potato goulash.
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="assets/q1_circle.png" alt="TobiShreds Profile">
+                    <div class="team-name">TobiShreds</div>
+                    <div class="team-skills">
+                        <span class="skill-coding">Coding</span>
+                    </div>
+                    <div class="team-desc">
+                        Tobi adamantly insists that he is NOT a genetic experiment or a cyborg,
+                        but his ability to bend time at his whim clearly proves otherwise.
+                        Tobi is an absolute machine (we know he secretly speaks binary) and loves taking care of tricky code.
+                        He is also apt at creating more tricky code that will become someone else's problem.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Our games</h2>
+            <div class="slideshow-container">
+                <div class="slideshow">
+                    <a class="slides-prev" onclick="advanceSlide(-1)">&#10094;</a>
+
+                    <div class="slide">
+                        <img src="assets/slideshow/Mutex_Slideshow.jpg" loading="lazy">
+                        <div class="slide-annotation">
+                            <div class="slide-title">M.U.T.E.X</div>
+                            <div class="slide-desc">Two pilots, scrambled sensors, maximum firepower</div>
+                            <a class="itch-btn" href="https://q1studios.itch.io/mutex">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M71.9 34.8C50.2 47.7 7.4 96.8 7 109.7l0 21.3c0 27.1 25.3 50.8 48.2 50.8 27.6 0 50.5-22.8 50.5-50 0 27.1 22.2 50 49.8 50s49-22.8 49-50c0 27.1 23.6 50 51.2 50l.5 0c27.6 0 51.2-22.8 51.2-50 0 27.1 21.5 50 49 50s49.8-22.8 49.8-50c0 27.1 23 50 50.5 50 23 0 48.3-23.8 48.3-50.8l0-21.3c-.4-12.9-43.2-62.1-64.9-75-67.4-2.3-114.2-2.7-184-2.7S91.1 33.1 71.9 34.8zM204.2 169.2c-22 38.4-77.9 38.7-99.8 .2-13.2 23.1-43.2 32.1-56 27.7-3.9 40.2-13.7 237.1 17.7 269.2 80 18.7 302.1 18.1 379.8 0 31.6-32.3 21.3-232 17.7-269.2-12.9 4.4-42.9-4.6-56-27.7-22 38.5-77.8 38.1-99.8-.2-7.1 12.5-23 28.9-51.8 28.9-10.4 .3-20.8-2.2-29.9-7.3s-16.7-12.6-21.9-21.6l0 0zm-41.6 53.8c16.5 0 31.1 0 49.2 19.8 29.3-3 58.9-3 88.2 0 18.2-19.7 32.8-19.7 49.2-19.7 52.3 0 65.2 77.5 83.9 144.4 17.3 62.2-5.5 63.7-34 63.7-42.1-1.6-65.5-32.2-65.5-62.8-39.3 6.4-101.9 8.8-155.6 0 0 30.6-23.3 61.2-65.5 62.8-28.4-.1-51.2-1.6-33.9-63.7 18.7-67 31.6-144.4 83.9-144.4l0-.1zM256 270.8s-44.4 40.8-52.4 55.2l29-1.2 0 25.3c0 1.5 21.3 .2 23.3 .2 11.6 .5 23.3 1 23.3-.2l0-25.3 29 1.2c-8-14.5-52.4-55.2-52.4-55.2l.1 0z"/></svg>
+                                Play on Itch
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/slideshow/Stealay_Slideshow.jpg" loading="lazy">
+                        <div class="slide-annotation">
+                            <div class="slide-title">Stealay</div>
+                            <div class="slide-desc">A heist planned right - delayed in execution</div>
+                            <a class="itch-btn" href="https://q1studios.itch.io/stealay">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M71.9 34.8C50.2 47.7 7.4 96.8 7 109.7l0 21.3c0 27.1 25.3 50.8 48.2 50.8 27.6 0 50.5-22.8 50.5-50 0 27.1 22.2 50 49.8 50s49-22.8 49-50c0 27.1 23.6 50 51.2 50l.5 0c27.6 0 51.2-22.8 51.2-50 0 27.1 21.5 50 49 50s49.8-22.8 49.8-50c0 27.1 23 50 50.5 50 23 0 48.3-23.8 48.3-50.8l0-21.3c-.4-12.9-43.2-62.1-64.9-75-67.4-2.3-114.2-2.7-184-2.7S91.1 33.1 71.9 34.8zM204.2 169.2c-22 38.4-77.9 38.7-99.8 .2-13.2 23.1-43.2 32.1-56 27.7-3.9 40.2-13.7 237.1 17.7 269.2 80 18.7 302.1 18.1 379.8 0 31.6-32.3 21.3-232 17.7-269.2-12.9 4.4-42.9-4.6-56-27.7-22 38.5-77.8 38.1-99.8-.2-7.1 12.5-23 28.9-51.8 28.9-10.4 .3-20.8-2.2-29.9-7.3s-16.7-12.6-21.9-21.6l0 0zm-41.6 53.8c16.5 0 31.1 0 49.2 19.8 29.3-3 58.9-3 88.2 0 18.2-19.7 32.8-19.7 49.2-19.7 52.3 0 65.2 77.5 83.9 144.4 17.3 62.2-5.5 63.7-34 63.7-42.1-1.6-65.5-32.2-65.5-62.8-39.3 6.4-101.9 8.8-155.6 0 0 30.6-23.3 61.2-65.5 62.8-28.4-.1-51.2-1.6-33.9-63.7 18.7-67 31.6-144.4 83.9-144.4l0-.1zM256 270.8s-44.4 40.8-52.4 55.2l29-1.2 0 25.3c0 1.5 21.3 .2 23.3 .2 11.6 .5 23.3 1 23.3-.2l0-25.3 29 1.2c-8-14.5-52.4-55.2-52.4-55.2l.1 0z"/></svg>
+                                Play on Itch
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/slideshow/SacrilegiousTerminus_Slideshow.png" loading="lazy">
+                        <div class="slide-annotation">
+                            <div class="slide-title">Sacrilegious Terminus</div>
+                            <div class="slide-desc">The rift is calling - unleash the underworld!</div>
+                            <a class="itch-btn" href="https://q1studios.itch.io/sacrilegious-terminus">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M71.9 34.8C50.2 47.7 7.4 96.8 7 109.7l0 21.3c0 27.1 25.3 50.8 48.2 50.8 27.6 0 50.5-22.8 50.5-50 0 27.1 22.2 50 49.8 50s49-22.8 49-50c0 27.1 23.6 50 51.2 50l.5 0c27.6 0 51.2-22.8 51.2-50 0 27.1 21.5 50 49 50s49.8-22.8 49.8-50c0 27.1 23 50 50.5 50 23 0 48.3-23.8 48.3-50.8l0-21.3c-.4-12.9-43.2-62.1-64.9-75-67.4-2.3-114.2-2.7-184-2.7S91.1 33.1 71.9 34.8zM204.2 169.2c-22 38.4-77.9 38.7-99.8 .2-13.2 23.1-43.2 32.1-56 27.7-3.9 40.2-13.7 237.1 17.7 269.2 80 18.7 302.1 18.1 379.8 0 31.6-32.3 21.3-232 17.7-269.2-12.9 4.4-42.9-4.6-56-27.7-22 38.5-77.8 38.1-99.8-.2-7.1 12.5-23 28.9-51.8 28.9-10.4 .3-20.8-2.2-29.9-7.3s-16.7-12.6-21.9-21.6l0 0zm-41.6 53.8c16.5 0 31.1 0 49.2 19.8 29.3-3 58.9-3 88.2 0 18.2-19.7 32.8-19.7 49.2-19.7 52.3 0 65.2 77.5 83.9 144.4 17.3 62.2-5.5 63.7-34 63.7-42.1-1.6-65.5-32.2-65.5-62.8-39.3 6.4-101.9 8.8-155.6 0 0 30.6-23.3 61.2-65.5 62.8-28.4-.1-51.2-1.6-33.9-63.7 18.7-67 31.6-144.4 83.9-144.4l0-.1zM256 270.8s-44.4 40.8-52.4 55.2l29-1.2 0 25.3c0 1.5 21.3 .2 23.3 .2 11.6 .5 23.3 1 23.3-.2l0-25.3 29 1.2c-8-14.5-52.4-55.2-52.4-55.2l.1 0z"/></svg>
+                                Play on Itch
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/slideshow/LanLiner_Slideshow.png" loading="lazy">
+                        <div class="slide-annotation">
+                            <div class="slide-title">LanLiner: Reconciliation</div>
+                            <div class="slide-desc">Race an adversary's data packet to the game server.</div>
+                            <a class="itch-btn" href="https://q1studios.itch.io/lanliner-recon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M71.9 34.8C50.2 47.7 7.4 96.8 7 109.7l0 21.3c0 27.1 25.3 50.8 48.2 50.8 27.6 0 50.5-22.8 50.5-50 0 27.1 22.2 50 49.8 50s49-22.8 49-50c0 27.1 23.6 50 51.2 50l.5 0c27.6 0 51.2-22.8 51.2-50 0 27.1 21.5 50 49 50s49.8-22.8 49.8-50c0 27.1 23 50 50.5 50 23 0 48.3-23.8 48.3-50.8l0-21.3c-.4-12.9-43.2-62.1-64.9-75-67.4-2.3-114.2-2.7-184-2.7S91.1 33.1 71.9 34.8zM204.2 169.2c-22 38.4-77.9 38.7-99.8 .2-13.2 23.1-43.2 32.1-56 27.7-3.9 40.2-13.7 237.1 17.7 269.2 80 18.7 302.1 18.1 379.8 0 31.6-32.3 21.3-232 17.7-269.2-12.9 4.4-42.9-4.6-56-27.7-22 38.5-77.8 38.1-99.8-.2-7.1 12.5-23 28.9-51.8 28.9-10.4 .3-20.8-2.2-29.9-7.3s-16.7-12.6-21.9-21.6l0 0zm-41.6 53.8c16.5 0 31.1 0 49.2 19.8 29.3-3 58.9-3 88.2 0 18.2-19.7 32.8-19.7 49.2-19.7 52.3 0 65.2 77.5 83.9 144.4 17.3 62.2-5.5 63.7-34 63.7-42.1-1.6-65.5-32.2-65.5-62.8-39.3 6.4-101.9 8.8-155.6 0 0 30.6-23.3 61.2-65.5 62.8-28.4-.1-51.2-1.6-33.9-63.7 18.7-67 31.6-144.4 83.9-144.4l0-.1zM256 270.8s-44.4 40.8-52.4 55.2l29-1.2 0 25.3c0 1.5 21.3 .2 23.3 .2 11.6 .5 23.3 1 23.3-.2l0-25.3 29 1.2c-8-14.5-52.4-55.2-52.4-55.2l.1 0z"/></svg>
+                                Play on Itch
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/slideshow/EscapeThePlantPlant_Slideshow.png" loading="lazy">
+                        <div class="slide-annotation">
+                            <div class="slide-title">Escape the Plant, Plant!</div>
+                            <div class="slide-desc">Breach your confinement, yearning for spring.</div>
+                            <a class="itch-btn" href="https://q1studios.itch.io/escape-the-plant-plant">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M71.9 34.8C50.2 47.7 7.4 96.8 7 109.7l0 21.3c0 27.1 25.3 50.8 48.2 50.8 27.6 0 50.5-22.8 50.5-50 0 27.1 22.2 50 49.8 50s49-22.8 49-50c0 27.1 23.6 50 51.2 50l.5 0c27.6 0 51.2-22.8 51.2-50 0 27.1 21.5 50 49 50s49.8-22.8 49.8-50c0 27.1 23 50 50.5 50 23 0 48.3-23.8 48.3-50.8l0-21.3c-.4-12.9-43.2-62.1-64.9-75-67.4-2.3-114.2-2.7-184-2.7S91.1 33.1 71.9 34.8zM204.2 169.2c-22 38.4-77.9 38.7-99.8 .2-13.2 23.1-43.2 32.1-56 27.7-3.9 40.2-13.7 237.1 17.7 269.2 80 18.7 302.1 18.1 379.8 0 31.6-32.3 21.3-232 17.7-269.2-12.9 4.4-42.9-4.6-56-27.7-22 38.5-77.8 38.1-99.8-.2-7.1 12.5-23 28.9-51.8 28.9-10.4 .3-20.8-2.2-29.9-7.3s-16.7-12.6-21.9-21.6l0 0zm-41.6 53.8c16.5 0 31.1 0 49.2 19.8 29.3-3 58.9-3 88.2 0 18.2-19.7 32.8-19.7 49.2-19.7 52.3 0 65.2 77.5 83.9 144.4 17.3 62.2-5.5 63.7-34 63.7-42.1-1.6-65.5-32.2-65.5-62.8-39.3 6.4-101.9 8.8-155.6 0 0 30.6-23.3 61.2-65.5 62.8-28.4-.1-51.2-1.6-33.9-63.7 18.7-67 31.6-144.4 83.9-144.4l0-.1zM256 270.8s-44.4 40.8-52.4 55.2l29-1.2 0 25.3c0 1.5 21.3 .2 23.3 .2 11.6 .5 23.3 1 23.3-.2l0-25.3 29 1.2c-8-14.5-52.4-55.2-52.4-55.2l.1 0z"/></svg>
+                                Play on Itch
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/slideshow/MailMayhem_Slideshow.png" loading="lazy">
+                        <div class="slide-annotation">
+                            <div class="slide-title">Mail Mayhem</div>
+                            <div class="slide-desc">How do you pack your things</div>
+                            <a class="itch-btn" href="https://q1studios.itch.io/mailmayhem">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M71.9 34.8C50.2 47.7 7.4 96.8 7 109.7l0 21.3c0 27.1 25.3 50.8 48.2 50.8 27.6 0 50.5-22.8 50.5-50 0 27.1 22.2 50 49.8 50s49-22.8 49-50c0 27.1 23.6 50 51.2 50l.5 0c27.6 0 51.2-22.8 51.2-50 0 27.1 21.5 50 49 50s49.8-22.8 49.8-50c0 27.1 23 50 50.5 50 23 0 48.3-23.8 48.3-50.8l0-21.3c-.4-12.9-43.2-62.1-64.9-75-67.4-2.3-114.2-2.7-184-2.7S91.1 33.1 71.9 34.8zM204.2 169.2c-22 38.4-77.9 38.7-99.8 .2-13.2 23.1-43.2 32.1-56 27.7-3.9 40.2-13.7 237.1 17.7 269.2 80 18.7 302.1 18.1 379.8 0 31.6-32.3 21.3-232 17.7-269.2-12.9 4.4-42.9-4.6-56-27.7-22 38.5-77.8 38.1-99.8-.2-7.1 12.5-23 28.9-51.8 28.9-10.4 .3-20.8-2.2-29.9-7.3s-16.7-12.6-21.9-21.6l0 0zm-41.6 53.8c16.5 0 31.1 0 49.2 19.8 29.3-3 58.9-3 88.2 0 18.2-19.7 32.8-19.7 49.2-19.7 52.3 0 65.2 77.5 83.9 144.4 17.3 62.2-5.5 63.7-34 63.7-42.1-1.6-65.5-32.2-65.5-62.8-39.3 6.4-101.9 8.8-155.6 0 0 30.6-23.3 61.2-65.5 62.8-28.4-.1-51.2-1.6-33.9-63.7 18.7-67 31.6-144.4 83.9-144.4l0-.1zM256 270.8s-44.4 40.8-52.4 55.2l29-1.2 0 25.3c0 1.5 21.3 .2 23.3 .2 11.6 .5 23.3 1 23.3-.2l0-25.3 29 1.2c-8-14.5-52.4-55.2-52.4-55.2l.1 0z"/></svg>
+                                Play on Itch
+                            </a>
+                        </div>
+                    </div>
+
+                    <a class="slides-next" onclick="advanceSlide(1)">&#10095;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div>Made with love by Q1 Studios.</div>
+        <div class="socials">
+            <a href="https://q1studios.itch.io" class="socials-itch">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M71.9 34.8C50.2 47.7 7.4 96.8 7 109.7l0 21.3c0 27.1 25.3 50.8 48.2 50.8 27.6 0 50.5-22.8 50.5-50 0 27.1 22.2 50 49.8 50s49-22.8 49-50c0 27.1 23.6 50 51.2 50l.5 0c27.6 0 51.2-22.8 51.2-50 0 27.1 21.5 50 49 50s49.8-22.8 49.8-50c0 27.1 23 50 50.5 50 23 0 48.3-23.8 48.3-50.8l0-21.3c-.4-12.9-43.2-62.1-64.9-75-67.4-2.3-114.2-2.7-184-2.7S91.1 33.1 71.9 34.8zM204.2 169.2c-22 38.4-77.9 38.7-99.8 .2-13.2 23.1-43.2 32.1-56 27.7-3.9 40.2-13.7 237.1 17.7 269.2 80 18.7 302.1 18.1 379.8 0 31.6-32.3 21.3-232 17.7-269.2-12.9 4.4-42.9-4.6-56-27.7-22 38.5-77.8 38.1-99.8-.2-7.1 12.5-23 28.9-51.8 28.9-10.4 .3-20.8-2.2-29.9-7.3s-16.7-12.6-21.9-21.6l0 0zm-41.6 53.8c16.5 0 31.1 0 49.2 19.8 29.3-3 58.9-3 88.2 0 18.2-19.7 32.8-19.7 49.2-19.7 52.3 0 65.2 77.5 83.9 144.4 17.3 62.2-5.5 63.7-34 63.7-42.1-1.6-65.5-32.2-65.5-62.8-39.3 6.4-101.9 8.8-155.6 0 0 30.6-23.3 61.2-65.5 62.8-28.4-.1-51.2-1.6-33.9-63.7 18.7-67 31.6-144.4 83.9-144.4l0-.1zM256 270.8s-44.4 40.8-52.4 55.2l29-1.2 0 25.3c0 1.5 21.3 .2 23.3 .2 11.6 .5 23.3 1 23.3-.2l0-25.3 29 1.2c-8-14.5-52.4-55.2-52.4-55.2l.1 0z"/></svg>
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
