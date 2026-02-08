@@ -34,7 +34,7 @@ section#q1-big {
     padding-right: 0;
 }
 
-section#q1-big div.container {
+section#q1-big div.intro-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,8 +46,10 @@ section#q1-big div.container {
     text-align: center;
 }
 
-section#q1-big div.container > * {
+section#q1-big div.intro-container div.intro-subcontainer {
     transform: skewY(10deg);
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 section#q1-big img {
