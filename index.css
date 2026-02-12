@@ -357,6 +357,20 @@ div.popup div.popup-content {
     padding: 40px 40px;
 }
 
+div.popup-content a {
+    text-decoration: none;
+    color: #54a4ff;
+}
+
+div.popup-content a:hover {
+    text-decoration: underline;
+    color: #3f7dc3;
+}
+
+div.popup#privacy-policy div.popup-content a {
+    text-decoration: underline;
+}
+
 div.popup a.popup-close-button {
     display: block;
     float: right;
