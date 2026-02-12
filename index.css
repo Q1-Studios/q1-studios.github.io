@@ -342,22 +342,25 @@ div#popup-container.active {
 div.popup {
     display: none;
     max-width: 80%;
+    max-height: 100vh;
+    overflow: scroll;
 
     background-color: #ffffff;
     color: #000000;
     font-size: 0.75em;
     text-align: center;
-    padding: 40px 40px;
     border-radius: 20px;
     box-shadow: 15px 25px 65px 10px rgba(0,0,0,0.5);
+}
+
+div.popup div.popup-content {
+    padding: 40px 40px;
 }
 
 div.popup a.popup-close-button {
     display: block;
     float: right;
     cursor: pointer;
-    margin-top: -20px;
-    margin-right: -20px;
 }
 
 div.popup a.popup-close-button svg {
