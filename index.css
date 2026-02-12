@@ -346,7 +346,7 @@ div.popup {
     background-color: #ffffff;
     color: #000000;
     font-size: 0.75em;
-    text-align: justify;
+    text-align: center;
     padding: 40px 40px;
     border-radius: 20px;
     box-shadow: 15px 25px 65px 10px rgba(0,0,0,0.5);
@@ -370,4 +370,12 @@ div.popup a.popup-close-button:hover svg {
 
 div.popup h2 {
     margin-top: 0;
+}
+
+div.popup#imprint {
+    text-align: left;
+}
+
+div.popup#privacy-policy {
+    text-align: justify;
 }
