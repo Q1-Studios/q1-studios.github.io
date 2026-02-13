@@ -337,6 +337,10 @@ div#popup-container.active {
     background-color: rgba(0,0,0,0.6);
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 div.popup {
     display: none;
     max-width: 80%;

@@ -22,19 +22,26 @@ function advanceSlide(step) {
 
 // Logic for showing popups
 let popupContainer = document.getElementById("popup-container")
+let body = document.querySelector("body");
+
 popupContainer.addEventListener("click", function (e) {
     if(e.target === this) {
         closePopups()
     }
 })
 
-function showImprint() {
+function showPopupLayer() {
     popupContainer.classList.add("active");
+    body.classList.add("no-scroll");
+}
+
+function showImprint() {
+    showPopupLayer();
     document.getElementById("imprint").style.display = "block";
 }
 
 function showPrivacyPolicy() {
-    popupContainer.classList.add("active");
+    showPopupLayer()
     document.getElementById("privacy-policy").style.display = "block";
 }
 
@@ -42,6 +49,7 @@ function closePopups() {
     for(let child of popupContainer.children) {
         child.style.display = "none";
         popupContainer.classList.remove("active");
+        body.classList.remove("no-scroll");
     }
 }
 
