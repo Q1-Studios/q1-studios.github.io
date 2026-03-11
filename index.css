@@ -341,7 +341,7 @@ div#popup-container.active {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(255,255,255,0.5);
 }
 
 .no-scroll {
@@ -354,8 +354,8 @@ div.popup {
     max-height: 100vh;
     overflow: scroll;
 
-    background-color: #ffffff;
-    color: #000000;
+    background-color: var(--color-dark);
+    color: var(--color-text-base);
     font-size: 0.75em;
     text-align: center;
     border-radius: 20px;
@@ -388,6 +388,7 @@ div.popup a.popup-close-button {
 
 div.popup a.popup-close-button svg {
     height: 20px;
+    fill: var(--color-text-base);
 }
 
 div.popup a.popup-close-button:hover svg {
