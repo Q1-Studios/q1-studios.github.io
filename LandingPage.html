@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <title>Q1Studios</title>
     <link rel="stylesheet" href="landingPage.css">
+    <link rel="stylesheet" href="slideshow.css">
     <script src="landingPage.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="slideshow-container">
 
     <div class="slideshow">
-        <div id="backblurr"><img src="assets/Logo/Logo.svg" loading="lazy"/></div>
-        <div > <h1 id="title">Q1 Studios</h1></div>
+        <div id="backblurr"><img src="assets/Logo/Logo.svg" loading="lazy"/><h1 id="Home">Q1 Studios</h1></div>
+
         <div class="slide">
             <div class="">
             <img src="assets/slideshow/Mutex_Slideshow.jpg" loading="lazy">
@@ -38,6 +42,82 @@
         </div>
         <div id="curve"><img src="assets/curve.svg"></div>
     </div>
+</div>
+
+
+<div class="games"><h2>Our Games</h2>
+<div id="gameSlider">
+    <div class="gameCard">
+        <img src="assets/GameLogos/mutex.png">
+    </div>
+    <div class="gameCard" id="main">
+        <img src="assets/GameLogos/mutex.png">
+    </div>
+    <div class="gameCard">
+        <img src="assets/GameLogos/mutex.png">
+    </div>
+    <div class="gameCard">
+        <img src="assets/GameLogos/mutex.png">
+    </div>
+    <div class="gameCard">
+        <img src="assets/GameLogos/mutex.png">
+    </div>
+</div>
+    <div class="carousel-container">
+        <!-- Navigation Arrows -->
+        <button id="prevBtn" class="nav-btn btn-prev" onclick="moveSlide(-1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button id="nextBtn" class="nav-btn btn-next" onclick="moveSlide(1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6 6-6" transform="rotate(180 12 12)"/></svg>
+        </button>
+
+        <div class="carousel-viewport">
+            <div id="carouselTrack" class="carousel-track">
+                <!-- Image Cards -->
+                <div class="carousel-card" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Img 1">
+                    <div class="card-label">M.U.</div>
+                </div>
+                <div class="carousel-card" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=600&q=80" alt="Img 2">
+                    <div class="card-label">M.U.</div>
+                </div>
+                <div class="carousel-card" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=600&q=80" alt="Img 3">
+                    <div class="card-label">M.U.</div>
+                </div>
+                <div class="carousel-card" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=600&q=80" alt="Img 4">
+                    <div class="card-label">M.U.</div>
+                </div>
+                <div class="carousel-card" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=600&q=80" alt="Img 5">
+                    <div class="card-label">M.U.</div>
+                </div>
+                <div class="carousel-card" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="https://images.unsplash.com/photo-1614851016576-4d8d197af0ea?auto=format&fit=crop&w=600&q=80" alt="Img 6">
+                    <div class="card-label">M.U.</div>
+                </div>
+                <div class="carousel-card" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="https://images.unsplash.com/photo-1614850715649-1d1414729397?auto=format&fit=crop&w=600&q=80" alt="Img 7">
+                    <div class="card-label">M.U.</div>
+                </div>
+                <div class="carousel-card" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=600&q=80" alt="Img 8">
+                    <div class="card-label">M.U.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="Enlarged view">
+    <button class="absolute top-8 right-8 text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
 </div>
 
 </body>

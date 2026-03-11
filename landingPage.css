@@ -10,8 +10,17 @@ body {
 
 h1 {
     font-size: 2.5em;
-}
+    font-family: Bungee, serif;
+    color:rgba(255,255,255,0.4)
 
+}
+h2{
+    font-size: 2.5em;
+    font-family: Bungee, serif;
+    color:white;
+    width: 100%;
+    text-align: center;
+}
 h2 {
     font-size: 2em;
 }
@@ -43,7 +52,7 @@ section#q1-big div.container {
     height: 70vh;
     padding-top: 100px;
     padding-bottom: 100px;
-    background-color: #1a1a1a;
+    nd-color: #1a1a1a;
     transform: skewY(-10deg);
     text-align: center;
 }
@@ -315,4 +324,21 @@ div.slideshow {
 
 .slides-prev:hover, .slides-next:hover {
     background-color: rgba(0,0,0,0.8);
+}
+.gameCard img{
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    filter: grayscale(100%);
+}
+
+.gameCard img:hover{
+    transition: all 0.3s ease;
+    filter: grayscale(0%);
+    scale: 1.25;
+}
+#gameSlider{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap:60px;
 }
