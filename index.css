@@ -85,8 +85,8 @@ div.team-box {
     div.team-box { grid-template-columns: repeat(3, 1fr); }
 }
 
-@media (min-width: 1600px) {
-    div.team-box { grid-template-columns: repeat(5, 1fr); }
+@media (min-width: 1920px) {
+    div.team-box { grid-template-columns: repeat(6, 1fr); }
 }
 
 div.team-box div.team-member {
