@@ -106,19 +106,20 @@ div.team-box .team-member img {
     margin-top: 10px;
 }
 
-.team-box .team-skills span {
+.team-box .team-skills div {
+    display: inline-block;
     font-size: 0.75em;
     padding: 5px 10px;
     border-radius: 20px;
 }
 
-.team-skills span.skill-coding {
+.team-skills div.skill-coding {
     background-color: #50b15c;
 }
-.team-skills span.skill-art {
+.team-skills div.skill-art {
     background-color: #ffcc65;
 }
-.team-skills span.skill-audio {
+.team-skills div.skill-audio {
     background-color: #5890ff;
 }
 
