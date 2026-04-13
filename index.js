@@ -55,6 +55,8 @@ function closePopups() {
 
 // Logic for de-obfuscating e-mail addresses in href-attribute
 let emails = document.querySelectorAll(".obfuscated-email");
-for(let email of emails) {
-    email.href = "mailto:" + email.textContent
+for (let email of emails) {
+    let emailAddr = email.textContent.split("").reverse().join("");
+    email.href = "mailto:" + emailAddr
+    email.textContent = emailAddr
 }
