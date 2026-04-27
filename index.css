@@ -163,48 +163,42 @@ footer div.socials a:hover:after {
 a.socials-itch {
     background-color: #fa5c5c;
 }
-
 a.socials-itch:hover {
     background-color: #b64343;
-}
-
-a.socials-itch:hover:after {
-    content: "Itch.io";
 }
 
 a.socials-github {
     background-color: #ffffff;
 }
-
-.socials a.socials-github svg {
-    fill: #000000;
-}
-
 a.socials-github:hover {
     background-color: #cccccc;
     color: #000000;
 }
-
-a.socials-github:hover:after {
-    content: "GitHub";
+.socials a.socials-github svg {
+    fill: #000000;
 }
 
 a.socials-youtube {
     background-color: #ff0033;
 }
-
 a.socials-youtube:hover {
     background-color: #c10029;
-}
-
-a.socials-youtube:hover:after {
-    content: "YouTube";
 }
 
 .socials a svg {
     fill: var(--color-text-base);
     width: 20px;
     height: 20px;
+}
+
+.socials a span.socials-label {
+    margin-left: 5px;
+}
+.socials a span.socials-label {
+    display: none;
+}
+.socials a:hover span.socials-label {
+    display: inline-block;
 }
 
 footer div.footer-links {
