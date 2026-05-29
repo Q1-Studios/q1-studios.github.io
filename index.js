@@ -20,6 +20,22 @@ function advanceSlide(step) {
     showSlide(currentSlide + step);
 }
 
+// Logic for navigating to game slide specified in URL fragment
+addEventListener("hashchange", (event) => { handleURLFragment() })
+
+function handleURLFragment() {
+    let fragment = location.hash.substring(1);
+    let slides = document.querySelectorAll(".slideshow .slide");
+    for (let i = 0; i < slides.length; i++) {
+        let slide = slides[i];
+        if (slide.id === fragment) {
+            showSlide(i);
+            slide.scrollIntoView();
+            break;
+        }
+    }
+}
+
 // Logic for showing popups
 let popupContainer = document.getElementById("popup-container")
 let body = document.querySelector("body");
