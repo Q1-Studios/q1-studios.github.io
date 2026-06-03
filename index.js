@@ -45,12 +45,12 @@ function advanceSlide(step) {
 }
 
 // Logic for navigating to game slide specified in URL fragment
-addEventListener("hashchange", (event) => { handleURLFragment() })
+addEventListener("hashchange", () => { handleURLFragment() })
 
 function handleURLFragment() {
-    let fragment = location.hash.substring(1);
+    const fragment = location.hash.substring(1);
     for (let i = 0; i < slides.length; i++) {
-        let slide = slides[i];
+        const slide = slides[i];
         if (slide.id === fragment) {
             showSlide(i);
             slide.scrollIntoView();
@@ -60,8 +60,8 @@ function handleURLFragment() {
 }
 
 // Logic for showing popups
-let popupContainer = document.getElementById("popup-container")
-let body = document.querySelector("body");
+const popupContainer = document.getElementById("popup-container")
+const body = document.querySelector("body");
 
 popupContainer.addEventListener("click", function (e) {
     if(e.target === this) {
@@ -85,7 +85,7 @@ function showPrivacyPolicy() {
 }
 
 function closePopups() {
-    for(let child of popupContainer.children) {
+    for(const child of popupContainer.children) {
         child.style.display = "none";
         popupContainer.classList.remove("active");
         body.classList.remove("no-scroll");
@@ -93,9 +93,9 @@ function closePopups() {
 }
 
 // Logic for de-obfuscating e-mail addresses in href-attribute
-let emails = document.querySelectorAll(".obfuscated-email");
-for (let email of emails) {
-    let emailAddr = email.textContent.split("").reverse().join("");
+const emails = document.querySelectorAll(".obfuscated-email");
+for (const email of emails) {
+    const emailAddr = email.textContent.split("").reverse().join("");
     email.href = "mailto:" + emailAddr
     email.textContent = emailAddr
 }
