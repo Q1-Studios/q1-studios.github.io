@@ -333,6 +333,8 @@ div.slideshow-progress-container {
 div#slideshow-progress {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 10px;
 }
 
 #slideshow-progress a.progress-dot {
