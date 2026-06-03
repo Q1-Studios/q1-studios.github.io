@@ -224,12 +224,6 @@ footer div.footer-links a:hover {
     color: #6c6c6c;
 }
 
-div.slideshow-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
 div.slideshow {
     overflow: hidden;
     position: relative;
@@ -325,6 +319,30 @@ div.slideshow {
 
 .slides-prev:hover, .slides-next:hover {
     background-color: rgba(0,0,0,0.8);
+}
+
+div#slideshow-progress {
+    display: flex;
+    padding-top: 10px;
+    justify-content: center;
+}
+
+#slideshow-progress a.progress-dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 3px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+#slideshow-progress a.progress-dot:hover {
+    background-color: rgba(255, 255, 255, 0.20)
+}
+
+#slideshow-progress a.progress-dot.active {
+    background-color: #ffffff;
 }
 
 div#popup-container {
