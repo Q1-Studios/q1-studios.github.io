@@ -236,6 +236,14 @@ div.slideshow {
     border-radius: var(--border-radius-corner) var(--border-radius-corner) 0 0;
 }
 
+div.slideshow noscript.slideshow-noscript {
+    display: flex;
+    height: 100%;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
 .slide img {
     position: absolute;
     top: 50%;
