@@ -396,7 +396,7 @@ div.popup {
     display: none;
     max-width: 80%;
     max-height: 100vh;
-    overflow: scroll;
+    overflow: auto;
 
     background-color: var(--color-dark);
     color: var(--color-text-base);
