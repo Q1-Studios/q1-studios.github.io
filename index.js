@@ -1,4 +1,5 @@
 let currentSlide = 0;
+const slideshow = document.querySelector('.slideshow');
 const slides = document.querySelectorAll(".slideshow .slide");
 
 // Logic for generating image slideshow progress indicators
@@ -12,7 +13,7 @@ for(let i = 0; i < slides.length; i++) {
     dot.classList.remove("active");
     dot.title = slideTitle;
     dot.addEventListener("click", () => {
-        showSlide(i);
+        jumpToSlide(i);
     });
     progressDiv.appendChild(dot);
 }
@@ -21,9 +22,20 @@ progressDiv.removeChild(templateDot);
 const progressDots = document.querySelectorAll("#slideshow-progress a.progress-dot");
 
 // Logic for image slideshow
-showSlide(currentSlide);
+handleSlideshowScroll();
+updateProgress(); // also set progress if slideshow isn't scrolled
 
-function showSlide(index) {
+slideshow.addEventListener("scroll", () => { handleSlideshowScroll() })
+
+function handleSlideshowScroll() {
+    const index = Math.round(slideshow.scrollLeft / slideshow.clientWidth);
+    if(index !== currentSlide) {
+        currentSlide = index;
+        updateProgress();
+    }
+}
+
+function jumpToSlide(index) {
     if(index < 0) {
         index = slides.length - 1;
     }
@@ -31,17 +43,18 @@ function showSlide(index) {
         index = index % slides.length;
     }
 
-    slides[currentSlide].style.display = "none";
-    progressDots[currentSlide].classList.remove("active");
-
-    slides[index].style.display= "block";
-    progressDots[index].classList.add("active");
-
-    currentSlide = index;
+    slideshow.scrollTo({left: index * slideshow.clientWidth});
 }
 
 function advanceSlide(step) {
-    showSlide(currentSlide + step);
+    jumpToSlide(currentSlide + step);
+}
+
+function updateProgress() {
+    for(let dot of progressDots) {
+        dot.classList.remove("active");
+    }
+    progressDots[currentSlide].classList.add("active");
 }
 
 // Logic for navigating to game slide specified in URL fragment
@@ -52,8 +65,7 @@ function handleURLFragment() {
     for (let i = 0; i < slides.length; i++) {
         const slide = slides[i];
         if (slide.id === fragment) {
-            showSlide(i);
-            slide.scrollIntoView();
+            jumpToSlide(i);
             break;
         }
     }
