@@ -246,6 +246,10 @@ div.slideshow noscript.slideshow-noscript {
 
 .slide {
     display: none;
+    position: relative;
+    height: 100%;
+    width: 100%;
+
     animation-name: fade-in;
     animation-duration: 0.2s;
 }
@@ -256,19 +260,16 @@ div.slideshow noscript.slideshow-noscript {
 }
 
 .slide img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     height: 100%;
-    width: auto;
+    width: 100%;
+    object-fit: cover;
 }
 
 .slide .slide-annotation {
     position: absolute;
     bottom: 0;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    box-sizing: border-box;
+    padding: 20px;
     width: 100%;
     text-align: center;
     background-color: #1a1a1a56;
