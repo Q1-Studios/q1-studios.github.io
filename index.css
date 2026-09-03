@@ -244,15 +244,6 @@ div.slideshow noscript.slideshow-noscript {
     align-items: center;
 }
 
-.slide img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 100%;
-    width: auto;
-}
-
 .slide {
     display: none;
     animation-name: fade-in;
@@ -262,6 +253,15 @@ div.slideshow noscript.slideshow-noscript {
 @keyframes fade-in {
     from {opacity: 0.8}
     to {opacity: 1}
+}
+
+.slide img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: auto;
 }
 
 .slide .slide-annotation {
