@@ -5,6 +5,8 @@
     --color-text-light: #b1b1b1;
 
     --border-radius-corner: 20px;
+
+    --title-skew: 10deg;
 }
 
 body {
@@ -45,7 +47,7 @@ section#q1-big {
     margin-top: 0;
     padding-left: 0;
     padding-right: 0;
-    margin-bottom: calc(tan(10deg) * 100vw / 2);
+    margin-bottom: calc(tan(var(--title-skew)) * 100vw / 2);
 }
 
 section#q1-big div.intro-container {
@@ -56,12 +58,12 @@ section#q1-big div.intro-container {
     padding-top: 100px;
     padding-bottom: 100px;
     background-color: var(--color-extradark);
-    transform: skewY(-10deg);
+    transform: skewY(calc(-1 * var(--title-skew)));
     text-align: center;
 }
 
 section#q1-big div.intro-container div.intro-subcontainer {
-    transform: skewY(10deg);
+    transform: skewY(var(--title-skew));
     padding-left: 20px;
     padding-right: 20px;
 }
