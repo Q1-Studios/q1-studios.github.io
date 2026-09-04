@@ -45,6 +45,7 @@ section#q1-big {
     margin-top: 0;
     padding-left: 0;
     padding-right: 0;
+    margin-bottom: calc(tan(10deg) * 100vw / 2);
 }
 
 section#q1-big div.intro-container {
