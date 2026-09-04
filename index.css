@@ -104,6 +104,9 @@ div.team-box div.team-member {
 
 div.team-box .team-member img {
     width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .team-box div.team-name {
