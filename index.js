@@ -62,12 +62,22 @@ addEventListener("hashchange", () => { handleURLFragment() })
 
 function handleURLFragment() {
     const fragment = location.hash.substring(1);
+
+    // Handle navigation to game slides
     for (let i = 0; i < slides.length; i++) {
         const slide = slides[i];
         if (slide.id === fragment) {
             jumpToSlide(i);
-            break;
+            return;
         }
+    }
+
+    // Handle navigation to popups
+    if(fragment === "imprint") {
+        showImprint();
+    }
+    else if(fragment === "privacy-policy") {
+        showPrivacyPolicy();
     }
 }
 
@@ -87,11 +97,13 @@ function showPopupLayer() {
 }
 
 function showImprint() {
+    closePopups();
     showPopupLayer();
     document.getElementById("imprint").style.display = "block";
 }
 
 function showPrivacyPolicy() {
+    closePopups();
     showPopupLayer()
     document.getElementById("privacy-policy").style.display = "block";
 }
