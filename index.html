@@ -2,334 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="We're a small team of passionate computer science students building games in their free time. Creators of Ohm'n'Beat, M.U.T.E.X., Stealay and more!">
-    <link rel="icon" href="assets/q1_circle.png">
-    <link rel="apple-touch-icon" href="assets/q1_square.png">
-    <title>Q1 Studios</title>
+    <title>Q1Studios</title>
     <link rel="stylesheet" href="index.css">
+
     <script src="index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div class="icon-defs">
-        <svg xmlns="http://www.w3.org/2000/svg"><defs><symbol id="itch-icon" viewBox="0 0 512 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M71.9 34.8C50.2 47.7 7.4 96.8 7 109.7l0 21.3c0 27.1 25.3 50.8 48.2 50.8 27.6 0 50.5-22.8 50.5-50 0 27.1 22.2 50 49.8 50s49-22.8 49-50c0 27.1 23.6 50 51.2 50l.5 0c27.6 0 51.2-22.8 51.2-50 0 27.1 21.5 50 49 50s49.8-22.8 49.8-50c0 27.1 23 50 50.5 50 23 0 48.3-23.8 48.3-50.8l0-21.3c-.4-12.9-43.2-62.1-64.9-75-67.4-2.3-114.2-2.7-184-2.7S91.1 33.1 71.9 34.8zM204.2 169.2c-22 38.4-77.9 38.7-99.8 .2-13.2 23.1-43.2 32.1-56 27.7-3.9 40.2-13.7 237.1 17.7 269.2 80 18.7 302.1 18.1 379.8 0 31.6-32.3 21.3-232 17.7-269.2-12.9 4.4-42.9-4.6-56-27.7-22 38.5-77.8 38.1-99.8-.2-7.1 12.5-23 28.9-51.8 28.9-10.4 .3-20.8-2.2-29.9-7.3s-16.7-12.6-21.9-21.6l0 0zm-41.6 53.8c16.5 0 31.1 0 49.2 19.8 29.3-3 58.9-3 88.2 0 18.2-19.7 32.8-19.7 49.2-19.7 52.3 0 65.2 77.5 83.9 144.4 17.3 62.2-5.5 63.7-34 63.7-42.1-1.6-65.5-32.2-65.5-62.8-39.3 6.4-101.9 8.8-155.6 0 0 30.6-23.3 61.2-65.5 62.8-28.4-.1-51.2-1.6-33.9-63.7 18.7-67 31.6-144.4 83.9-144.4l0-.1zM256 270.8s-44.4 40.8-52.4 55.2l29-1.2 0 25.3c0 1.5 21.3 .2 23.3 .2 11.6 .5 23.3 1 23.3-.2l0-25.3 29 1.2c-8-14.5-52.4-55.2-52.4-55.2l.1 0z"/></symbol></defs></svg>
-        <svg xmlns="http://www.w3.org/2000/svg"><defs><symbol id="youtube-icon" viewBox="0 0 576 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M549.7 124.1C543.5 100.4 524.9 81.8 501.4 75.5 458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5C51.2 81.8 32.7 100.4 26.4 124.1 15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8 42.6 11.5 213.4 11.5 213.4 11.5s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6l0-162.4 142.7 81.2-142.7 81.2z"/></symbol></defs></svg>
-        <svg xmlns="http://www.w3.org/2000/svg"><defs><symbol id="github-icon" viewBox="0 0 512 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM252.8 8c-138.7 0-244.8 105.3-244.8 244 0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1 100-33.2 167.8-128.1 167.8-239 0-138.7-112.5-244-251.2-244zM105.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></symbol></defs></svg>
-        <svg xmlns="http://www.w3.org/2000/svg"><defs><symbol id="close-icon" viewBox="0 0 384 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z"/></symbol></defs></svg>
+<div class="slideshow-container">
+    <div class="slideshow">
+        <div id="backblurr"><img src="../assets/logo/logo.svg" loading="lazy"/><h1 id="Home">Q1 Studios</h1></div>
+        <div class="slide">
+            <div class="slide">
+            <img src="../assets/slideshow/Mutex_Slideshow.jpg" loading="lazy">
+            </div>
+        </div>
+        <div class="slide">
+            <img src="../assets/slideshow/Stealay_Slideshow.jpg" loading="lazy">
+        </div>
+
+        <div class="slide">
+            <img src="../assets/slideshow/SacrilegiousTerminus_Slideshow.png" loading="lazy">
+        </div>
+
+        <div class="slide">
+            <img src="../assets/slideshow/LanLiner_Slideshow.png" loading="lazy">
+        </div>
+
+        <div class="slide">
+            <img src="../assets/slideshow/EscapeThePlantPlant_Slideshow.png" loading="lazy">
+        </div>
+
+        <div class="slide">
+            <img src="../assets/slideshow/MailMayhem_Slideshow.png" loading="lazy">
+        </div>
+        <div id="curve"><img src="../assets/curve.svg"></div>
     </div>
+</div>
 
-    <noscript>
-        <style>
-            .needs-js {
-                display: none;
-            }
-        </style>
-    </noscript>
-    
-    <main id="main">
-        <section id="q1-big">
-            <div class="intro-container">
-                <div class="intro-subcontainer">
-                    <img src="assets/q1_circle.png" alt="Q1 Logo">
-                    <h1 id="q1-studios">Q1 Studios</h1>
-                    <p>
-                        A bunch of students who make games.<br>
-                        Always learning. Always seeking to create something exciting.
-                    </p>
-                </div>
-            </div>
-        </section>
 
-        <section>
-            <h2 id="about-us">About us</h2>
-            <p>
-                We're a small team of passionate computer science students building games in their free time.
-            </p>
+<div class="games"><h2>Our Games</h2>
 
-            <div class="team-box">
-
-                <div class="team-member" id="Seal">
-                    <img src="assets/profiles/seal.webp" alt="Seal Profile">
-                    <div class="team-name">Seal</div>
-                    <div class="team-skills">
-                        <div class="skill-coding">Coding</div>
-                        <div class="skill-art">Art</div>
-                    </div>
-                    <div class="team-desc">
-                        50% 3D Artist, 50% Mad Scientist, 100% Seal.
-                        Boasting natural buoyancy and a skill set in 3D Art that rivals Leonardo da Vinci
-                        (if da Vinci was a god-tier shitposter), Seal never backs down from tackling a challenging project.
-                        At Q1, he's a force to be reckoned with, pushing both visuals and collateral damage to their maximum.
-                    </div>
-                </div>
-
-                <div class="team-member" id="Cucu">
-                    <img src="assets/profiles/cucu.webp" alt="Cucu Profile">
-                    <div class="team-name">Cucu</div>
-                    <div class="team-skills">
-                        <div class="skill-coding">Coding</div>
-                        <div class="skill-audio">Audio</div>
-                    </div>
-                    <div class="team-desc">
-                        Cucu is a botanical wonder, running entirely on spite and way too little sleep.
-                        When he gets excited about something, nothing except for the laws of physics
-                        (i.e. hitting him with a brick) can stop him.
-                        Cucu also composes music and beats his expensive microphone up with a stick for the perfect clicking sound.
-                    </div>
-                </div>
-
-                <div class="team-member" id="Portar">
-                    <img src="assets/profiles/portar.webp" alt="Portar Profile">
-                    <div class="team-name">Portar</div>
-                    <div class="team-skills">
-                        <div class="skill-coding">Coding</div>
-                        <div class="skill-art">Art</div>
-                    </div>
-                    <div class="team-desc">
-                        If you're looking for a Swiss Army knife, look no further than Portar!
-                        Having an extensive technical background, Portar gladly takes on any challenge, from code
-                        to 2D art and 3D modeling.
-                        The fact that he is (by and large) not delusional adds a valuable trait to the Q1 team.
-                    </div>
-                </div>
-
-                <div class="team-member" id="Wolphi">
-                    <img src="assets/profiles/wolphi.webp" alt="Wolphi Profile">
-                    <div class="team-name">Wolphi</div>
-                    <div class="team-skills">
-                        <div class="skill-coding">Coding</div>
-                    </div>
-                    <div class="team-desc">
-                        Wolphi wrangles both frontends and backends without fear.
-                        He's the only real industry veteran at Q1 who has already excessively experienced The Horrors™ of employment,
-                        and we're preeeetty sure he's close to retirement. But until he gets his senior citizen card,
-                        he codes awesome stuff and supplies the team with potato goulash.
-                    </div>
-                </div>
-
-                <div class="team-member" id="TobiShreds">
-                    <img src="assets/profiles/tobishreds.webp" alt="TobiShreds Profile">
-                    <div class="team-name">TobiShreds</div>
-                    <div class="team-skills">
-                        <div class="skill-coding">Coding</div>
-                    </div>
-                    <div class="team-desc">
-                        Tobi adamantly insists that he is NOT a genetic experiment or a cyborg,
-                        but his ability to bend time at his whim clearly proves otherwise.
-                        Tobi is an absolute machine (we know he secretly speaks binary) and loves taking care of tricky code.
-                        He is also apt at creating more tricky code that will become someone else's problem.
-                    </div>
-                </div>
-
-                <div class="team-member" id="Xtoph">
-                    <img src="assets/profiles/xtoph.webp" alt="Xtoph Profile">
-                    <div class="team-name">Xtoph</div>
-                    <div class="team-skills">
-                        <div class="skill-coding">Coding</div>
-                    </div>
-                    <div class="team-desc">
-                        Once bright-eyed and bushy-tailed, Xtoph came into closer contact with programming war crimes
-                        than any person ever should.
-                        Although the spark in his eyes has been replaced by the weariness of a grizzled veteran,
-                        his passion for learning and dedication persisted. As a part of Q1,
-                        he now gets a chance to be on the offending side of Geneva convention violations.
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section>
-            <h2 id="our-games">Our games</h2>
-            
-            <div class="slideshow-container">
-                <a class="slides-prev needs-js" onclick="advanceSlide(-1)">&#10094;</a>
-
-                <div class="slideshow">
-
-                    <div class="slide" id="art-from-the-block">
-                        <img src="assets/slideshow/ArtFromTheBlock_Slideshow.jpg" alt="Art From The Block Banner" loading="lazy">
-                        <div class="slide-annotation">
-                            <div class="slide-title">Art From The Block</div>
-                            <div class="slide-desc">Tag your city block, spread your art and achieve the high score!</div>
-                            <a class="itch-btn" href="https://q1studios.itch.io/art-from-the-block" target="_blank">
-                                <svg><use href="#itch-icon"></use></svg>
-                                <span>Play on Itch</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="slide" id="treevolution">
-                        <img src="assets/slideshow/TreeVolution_Slideshow.png" alt="TreeVolution Banner" loading="lazy">
-                        <div class="slide-annotation">
-                            <div class="slide-title">TreeVolution</div>
-                            <div class="slide-desc">Spring has come. Face your formidable foe and evolve with every round.</div>
-                            <a class="itch-btn" href="https://q1studios.itch.io/treevolution" target="_blank">
-                                <svg><use href="#itch-icon"></use></svg>
-                                <span>Play on Itch</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="slide" id="ohmnbeat">
-                        <img src="assets/slideshow/OhmnBeat_Slideshow.png" alt="Ohm'n'Beat Banner" loading="lazy">
-                        <div class="slide-annotation">
-                            <div class="slide-title">Ohm'n'Beat</div>
-                            <div class="slide-desc">Exhilarating &amp; Oscillating Beat Resistance</div>
-                            <a class="itch-btn" href="https://q1studios.itch.io/ohmnbeat" target="_blank">
-                                <svg><use href="#itch-icon"></use></svg>
-                                <span>Play on Itch</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="slide" id="mutex">
-                        <img src="assets/slideshow/Mutex_Slideshow.jpg" alt="M.U.T.E.X. Banner" loading="lazy">
-                        <div class="slide-annotation">
-                            <div class="slide-title">M.U.T.E.X.</div>
-                            <div class="slide-desc">Two pilots, scrambled sensors, maximum firepower</div>
-                            <a class="itch-btn" href="https://q1studios.itch.io/mutex" target="_blank">
-                                <svg><use href="#itch-icon"></use></svg>
-                                <span>Play on Itch</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="slide" id="stealay">
-                        <img src="assets/slideshow/Stealay_Slideshow.jpg" alt="Stealay Banner" loading="lazy">
-                        <div class="slide-annotation">
-                            <div class="slide-title">Stealay</div>
-                            <div class="slide-desc">A heist planned right - delayed in execution</div>
-                            <a class="itch-btn" href="https://q1studios.itch.io/stealay" target="_blank">
-                                <svg><use href="#itch-icon"></use></svg>
-                                <span>Play on Itch</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="slide" id="sacrilegious-terminus">
-                        <img src="assets/slideshow/SacrilegiousTerminus_Slideshow.png" alt="Sacrilegious Terminus Banner" loading="lazy">
-                        <div class="slide-annotation">
-                            <div class="slide-title">Sacrilegious Terminus</div>
-                            <div class="slide-desc">The rift is calling - unleash the underworld!</div>
-                            <a class="itch-btn" href="https://q1studios.itch.io/sacrilegious-terminus" target="_blank">
-                                <svg><use href="#itch-icon"></use></svg>
-                                <span>Play on Itch</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="slide" id="lanliner">
-                        <img src="assets/slideshow/LanLiner_Slideshow.png" alt="LanLiner: Reconciliation Banner" loading="lazy">
-                        <div class="slide-annotation">
-                            <div class="slide-title">LanLiner: Reconciliation</div>
-                            <div class="slide-desc">Race an adversary's data packet to the game server.</div>
-                            <a class="itch-btn" href="https://q1studios.itch.io/lanliner-recon" target="_blank">
-                                <svg><use href="#itch-icon"></use></svg>
-                                <span>Play on Itch</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="slide" id="escape-the-plant-plant">
-                        <img src="assets/slideshow/EscapeThePlantPlant_Slideshow.png" alt="Escape The Plant, Plant Banner" loading="lazy">
-                        <div class="slide-annotation">
-                            <div class="slide-title">Escape the Plant, Plant!</div>
-                            <div class="slide-desc">Breach your confinement, yearning for spring.</div>
-                            <a class="itch-btn" href="https://q1studios.itch.io/escape-the-plant-plant" target="_blank">
-                                <svg><use href="#itch-icon"></use></svg>
-                                <span>Play on Itch</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="slide" id="mail-mayhem">
-                        <img src="assets/slideshow/MailMayhem_Slideshow.png" alt="Mail Mayhem Banner" loading="lazy">
-                        <div class="slide-annotation">
-                            <div class="slide-title">Mail Mayhem</div>
-                            <div class="slide-desc">How do you pack your things</div>
-                            <a class="itch-btn" href="https://q1studios.itch.io/mailmayhem" target="_blank">
-                                <svg><use href="#itch-icon"></use></svg>
-                                <span>Play on Itch</span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <a class="slides-next needs-js" onclick="advanceSlide(1)">&#10095;</a>
-
-                <div class="slideshow-progress-container">
-                    <div id="slideshow-progress">
-                        <noscript class="slideshow-progress-noscript">
-                            Slideshow navigation requires JavaScript to be enabled, sorry! You can still scroll through our games though.
-                        </noscript>
-                        <a class="progress-dot needs-js active" id="template-dot"></a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div>Made with love by Q1 Studios.</div>
-        <div class="socials">
-            <a class="socials-itch" href="https://q1studios.itch.io" target="_blank">
-                <svg><use href="#itch-icon"></use></svg>
-                <span class="socials-label">Itch.io</span>
-            </a>
-            <a class="socials-youtube" href="https://www.youtube.com/channel/UCTxwL6XaxnxiKtU4SFTnIlQ" target="_blank">
-                <svg><use href="#youtube-icon"></use></svg>
-                <span class="socials-label">YouTube</span>
-            </a>
-            <a class="socials-github" href="https://github.com/Q1-Studios" target="_blank">
-                <svg><use href="#github-icon"></use></svg>
-                <span class="socials-label">GitHub</span>
-            </a>
+<div id="buttons">
+    <button id="prevBtn" class="nav-btn btn-prev" onclick="moveSlide(-1)">
+       <
+    </button>
+    <button id="nextBtn" class="nav-btn btn-next" onclick="moveSlide(1)">
+       >
+    </button>
+</div>
+    <div id="gameSlider">
+        <div class="gameCard" >
+            <img src="assets/GameLogos/mutex.png" id="card1" href="" target="_blank">
         </div>
-        <div class="footer-links">
-            <a onclick="showImprint()">Imprint</a>
-            <a onclick="showPrivacyPolicy()">Privacy Policy</a>
+        <div class="gameCard" >
+            <img src="assets/GameLogos/mutex.png" id="card2" target="_blank">
         </div>
-    </footer>
-
-    <div id="popup-container">
-        <div id="imprint" class="popup">
-            <div class="popup-content">
-                <a class="popup-close-button" onclick="closePopups()">
-                    <svg><use href="#close-icon"></use></svg>
-                </a>
-                <h2>Imprint</h2>
-                <p>
-                    This website is operated by a collective of students for non-commercial purposes.
-                </p>
-                <h3>Contact information</h3>
-                <div class="imprint-mail">
-                    <a class="obfuscated-email" target="_blank">ta.soiduts1q@tcatnoc</a>
-                </div>
-                <div class="imprint-address">
-                    9020 Klagenfurt am Wörthersee<br>
-                    Carinthia, Austria
-                </div>
-            </div>
+        <div class="gameCard" >
+            <img src="assets/GameLogos/mutex.png" id="card3" target="_blank">
         </div>
-
-        <div id="privacy-policy" class="popup">
-            <div class="popup-content">
-                <a class="popup-close-button" onclick="closePopups()">
-                    <svg><use href="#close-icon"></use></svg>
-                </a>
-                <h2>Privacy Policy</h2>
-                <p>
-                    This website does not collect any personal information or store any cookies on your device.
-                    However, when using this website, some data may be processed by our hosting provider GitHub, Inc. ("GitHub").
-                    GitHub's privacy statement affecting this website is linked <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection" target="_blank">here</a> for your convenience.
-                </p>
-            </div>
+        <div class="gameCard" >
+            <img src="assets/GameLogos/mutex.png" id="card4" target="_blank">
+        </div>
+        <div class="gameCard" >
+            <img src="assets/GameLogos/mutex.png" id="card5" target="_blank">
         </div>
     </div>
-
+</div>
+<div id="mountain"><img src="../assets/mountain.svg"></div>
+<div id="Chibi">
+<h2>About Us</h2>
+<h3>We're a small team of passionate computer science students building games in their free time.
+</h3>
+</div>
 </body>
 </html>

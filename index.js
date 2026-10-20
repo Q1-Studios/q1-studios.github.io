@@ -1,125 +1,37 @@
-let currentSlide = 0;
-const slideshow = document.querySelector('.slideshow');
-const slides = document.querySelectorAll(".slideshow .slide");
+const games = [
+    {name:"Mutex", image:"../assets/game-logos/mutex.png", link:"https://q1studios.itch.io/mutex"},
+    {name:"Escape", image:"../assets/game-logos/Escape_The_Plant.png", link:"https://q1studios.itch.io/escape-the-plant-plant"},
+    {name:"Lane", image:"../assets/game-logos/Lane.png", link:"https://q1studios.itch.io/lanliner-recon"},
+    {name:"Morbid", image:"../assets/game-logos/morbid.png", link:"https://q1studios.itch.io/morbid-curiosity"},
+    {name:"Ohm", image:"../assets/game-logos/Ohm.png", link:"https://q1studios.itch.io/ohmnbeat"},
+    {name:"Sac", image:"../assets/game-logos/Sac.png", link:"https://q1studios.itch.io/sacrilegious-terminus"},
+    {name:"Stealay", image:"../assets/game-logos/Stealay.png", link:"https://q1studios.itch.io/stealay"}
+];
 
-// Logic for generating image slideshow progress indicators
-const progressDiv = document.getElementById("slideshow-progress");
-const templateDot = document.getElementById("template-dot");
+let currentIndex = 0;
+const cardsCount = 5;
 
-for(let i = 0; i < slides.length; i++) {
-    const dot = templateDot.cloneNode();
-    const slideTitle = slides[i].querySelector(".slide-title").textContent;
+moveSlide(0);
 
-    dot.classList.remove("active");
-    dot.title = slideTitle;
-    dot.addEventListener("click", () => {
-        jumpToSlide(i);
-    });
-    progressDiv.appendChild(dot);
-}
-progressDiv.removeChild(templateDot);
+function moveSlide(step) {
 
-const progressDots = document.querySelectorAll("#slideshow-progress a.progress-dot");
+    currentIndex = (currentIndex + step + games.length) % games.length;
 
-// Logic for image slideshow
-handleSlideshowScroll();
-updateProgress(); // also set progress if slideshow isn't scrolled
+    // 2. Karten aktualisieren
+    for (let i = 0; i < cardsCount; i++) {
 
-slideshow.addEventListener("scroll", () => { handleSlideshowScroll() })
-
-function handleSlideshowScroll() {
-    const index = Math.round(slideshow.scrollLeft / slideshow.clientWidth);
-    if(index !== currentSlide) {
-        currentSlide = index;
-        updateProgress();
+        let gameIndex = (currentIndex + i) % games.length;
+        setCard(i, gameIndex);
     }
 }
 
-function jumpToSlide(index) {
-    if(index < 0) {
-        index = slides.length - 1;
+function setCard(cardSlot, gameIndex) {
+    let id = cardSlot + 1;
+    let element = document.getElementById("card" + id);
+
+    if (element) {
+        element.src = games[gameIndex].image;
+
+        element.onclick = () => window.location.href = games[gameIndex].link;
     }
-    else {
-        index = index % slides.length;
-    }
-
-    slideshow.scrollTo({left: index * slideshow.clientWidth});
-}
-
-function advanceSlide(step) {
-    jumpToSlide(currentSlide + step);
-}
-
-function updateProgress() {
-    for(let dot of progressDots) {
-        dot.classList.remove("active");
-    }
-    progressDots[currentSlide].classList.add("active");
-}
-
-// Logic for navigating to game slide specified in URL fragment
-addEventListener("hashchange", () => { handleURLFragment() })
-
-function handleURLFragment() {
-    const fragment = location.hash.substring(1);
-
-    // Handle navigation to game slides
-    for (let i = 0; i < slides.length; i++) {
-        const slide = slides[i];
-        if (slide.id === fragment) {
-            jumpToSlide(i);
-            return;
-        }
-    }
-
-    // Handle navigation to popups
-    if(fragment === "imprint") {
-        showImprint();
-    }
-    else if(fragment === "privacy-policy") {
-        showPrivacyPolicy();
-    }
-}
-
-// Logic for showing popups
-const popupContainer = document.getElementById("popup-container")
-const body = document.querySelector("body");
-
-popupContainer.addEventListener("click", function (e) {
-    if(e.target === this) {
-        closePopups()
-    }
-})
-
-function showPopupLayer() {
-    popupContainer.classList.add("active");
-    body.classList.add("no-scroll");
-}
-
-function showImprint() {
-    closePopups();
-    showPopupLayer();
-    document.getElementById("imprint").style.display = "block";
-}
-
-function showPrivacyPolicy() {
-    closePopups();
-    showPopupLayer()
-    document.getElementById("privacy-policy").style.display = "block";
-}
-
-function closePopups() {
-    for(const child of popupContainer.children) {
-        child.style.display = "none";
-        popupContainer.classList.remove("active");
-        body.classList.remove("no-scroll");
-    }
-}
-
-// Logic for de-obfuscating e-mail addresses in href-attribute
-const emails = document.querySelectorAll(".obfuscated-email");
-for (const email of emails) {
-    const emailAddr = email.textContent.split("").reverse().join("");
-    email.href = "mailto:" + emailAddr
-    email.textContent = emailAddr
 }
