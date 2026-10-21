@@ -231,8 +231,14 @@ div.slideshow {
     background-color:rgba(32,57,79,0.4);
     backdrop-filter: blur(7px);
 }
+/* logo and title scale with the window (whichever side is tighter), so the hero looks the same on every screen */
 #backblurr img{
     background-color: rgba(32,57,79,0);
+    height: min(38.4vh, 27vw);
+    max-width: 100%;
+}
+#backblurr h1{
+    font-size: min(6.7vh, 4.2vw);
 }
 #curve{
     position: absolute;
@@ -253,7 +259,8 @@ div.slideshow {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 100%;
-    width: auto;
+    width: 100%;
+    object-fit: cover;
 }
 
 .slide {
@@ -470,6 +477,12 @@ div.slideshow {
 .skill.art{ background-color: #c8783a; }
 .skill.music{ background-color: #b5474b; }
 .skill.sound{ background-color: #4fb0d8; }
+
+/* fade out at the bottom of the page, scales with the window width */
+#fade{
+    height: clamp(120px, 12.5vw, 320px);
+    background: linear-gradient(#222D39, #19222B 28%);
+}
 
 @media (max-width: 700px){
     .person, .person + .person{
