@@ -407,3 +407,85 @@ div.slideshow {
     top:1px;
     height: auto;
 }
+#team{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+}
+/* avatar on the left, then on the right for every second person */
+.person{
+    display: grid;
+    grid-template-columns: 190px 1fr 190px;
+    column-gap: 30px;
+    align-items: center;
+}
+.person + .person{
+    margin-top: -20px;
+}
+.person img{
+    grid-column: 1;
+    grid-row: 1;
+    width: 190px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-sizing: border-box;
+}
+.person:nth-child(even) img{
+    grid-column: 3;
+}
+.person-info{
+    grid-column: 2;
+    grid-row: 1;
+}
+.person-head{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+.person h4{
+    margin: 0 6px 0 0;
+    font-family: Bungee, serif;
+    font-size: 1.3em;
+    font-weight: normal;
+    color: white;
+}
+.person p{
+    margin: 10px 0 0;
+    font-family: Bungee, serif;
+    font-size: 0.55em;
+    line-height: 1.35;
+    color: white;
+}
+.skill{
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-family: Bungee, serif;
+    font-size: 0.5em;
+    color: white;
+}
+.skill.coding{ background-color: #5cb85c; }
+.skill.art{ background-color: #c8783a; }
+.skill.music{ background-color: #b5474b; }
+.skill.sound{ background-color: #4fb0d8; }
+
+@media (max-width: 700px){
+    .person, .person + .person{
+        grid-template-columns: 1fr;
+        justify-items: center;
+        margin-top: 40px;
+        text-align: center;
+    }
+    .person img, .person:nth-child(even) img, .person-info{
+        grid-column: 1;
+        grid-row: auto;
+    }
+    .person-info{
+        margin-top: 15px;
+    }
+    .person-head{
+        justify-content: center;
+    }
+}
