@@ -1,125 +1,141 @@
-let currentSlide = 0;
-const slideshow = document.querySelector('.slideshow');
-const slides = document.querySelectorAll(".slideshow .slide");
+// hover preview shows the itch.io cover, title and tagline (itch.io doesn't allow embedding its pages)
+const games = [
+    {name:"Mutex", image:"assets/game-logos/mutex.png", link:"https://q1studios.itch.io/mutex",
+        title:"M.U.T.E.X.", desc:"Two pilots, scrambled sensors, maximum firepower",
+        preview:"assets/game-previews/mutex.jpg"},
+    {name:"Escape", image:"assets/game-logos/Escape_The_Plant.png", link:"https://q1studios.itch.io/escape-the-plant-plant",
+        title:"Escape the Plant, Plant!", desc:"Breach your confinement, yearning for spring.",
+        preview:"assets/game-previews/escape-the-plant.jpg"},
+    {name:"Lane", image:"assets/game-logos/Lane.png", link:"https://q1studios.itch.io/lanliner-recon",
+        title:"LanLiner: Reconciliation", desc:"Race an adversary's data packet to the game server.",
+        preview:"assets/game-previews/lanliner.jpg"},
+    {name:"Morbid", image:"assets/game-logos/morbid.png", link:"https://q1studios.itch.io/morbid-curiosity",
+        title:"Morbid Curiosity", desc:"[Work in progress - Currently unfinished]",
+        preview:"assets/game-previews/morbid-curiosity.jpg"},
+    {name:"Ohm", image:"assets/game-logos/Ohm.png", link:"https://q1studios.itch.io/ohmnbeat",
+        title:"Ohm'n'Beat", desc:"Exhilarating & Oscillating Beat Resistance",
+        preview:"assets/game-previews/ohmnbeat.jpg"},
+    {name:"Sac", image:"assets/game-logos/Sac.png", link:"https://q1studios.itch.io/sacrilegious-terminus",
+        title:"Sacrilegious Terminus", desc:"The rift is calling - unleash the underworld!",
+        preview:"assets/game-previews/sacrilegious-terminus.jpg"},
+    {name:"Stealay", image:"assets/game-logos/Stealay.png", link:"https://q1studios.itch.io/stealay",
+        title:"Stealay", desc:"A heist planned right - delayed in execution",
+        preview:"assets/game-previews/stealay.jpg"}
+];
 
-// Logic for generating image slideshow progress indicators
-const progressDiv = document.getElementById("slideshow-progress");
-const templateDot = document.getElementById("template-dot");
+let currentIndex = 0;
+const cardsCount = 5;
 
-for(let i = 0; i < slides.length; i++) {
-    const dot = templateDot.cloneNode();
-    const slideTitle = slides[i].querySelector(".slide-title").textContent;
+// One dot per game below the slider; clicking a dot makes that game the first card
+const dots = games.map((game, i) => {
+    const dot = document.createElement("button");
+    dot.className = "slider-dot";
+    dot.setAttribute("aria-label", "Show " + game.title);
+    dot.onclick = () => moveSlide(i - currentIndex);
+    document.getElementById("sliderDots").appendChild(dot);
+    return dot;
+});
+// 5, 3 or 1 cards are visible depending on the screen width
+window.addEventListener("resize", updateDots);
 
-    dot.classList.remove("active");
-    dot.title = slideTitle;
-    dot.addEventListener("click", () => {
-        jumpToSlide(i);
+moveSlide(0);
+
+function moveSlide(step) {
+
+    currentIndex = (currentIndex + step + games.length) % games.length;
+
+    // 2. Karten aktualisieren
+    for (let i = 0; i < cardsCount; i++) {
+
+        let gameIndex = (currentIndex + i) % games.length;
+        setCard(i, gameIndex);
+    }
+    updateDots();
+}
+
+// Highlight the dots of the games that are currently shown
+function updateDots() {
+    const visible = [...document.querySelectorAll(".gameCard")]
+        .filter(card => getComputedStyle(card).display !== "none").length;
+
+    dots.forEach((dot, i) => {
+        const shown = (i - currentIndex + games.length) % games.length < visible;
+        dot.classList.toggle("active", shown);
+        dot.setAttribute("aria-current", shown ? "true" : "false");
     });
-    progressDiv.appendChild(dot);
 }
-progressDiv.removeChild(templateDot);
 
-const progressDots = document.querySelectorAll("#slideshow-progress a.progress-dot");
+function setCard(cardSlot, gameIndex) {
+    let id = cardSlot + 1;
+    let card = document.getElementById("card" + id);
+    let game = games[gameIndex];
 
-// Logic for image slideshow
-handleSlideshowScroll();
-updateProgress(); // also set progress if slideshow isn't scrolled
-
-slideshow.addEventListener("scroll", () => { handleSlideshowScroll() })
-
-function handleSlideshowScroll() {
-    const index = Math.round(slideshow.scrollLeft / slideshow.clientWidth);
-    if(index !== currentSlide) {
-        currentSlide = index;
-        updateProgress();
+    if (card) {
+        card.href = game.link;
+        card.querySelector(".game-logo").src = game.image;
+        card.querySelector(".game-logo").alt = game.title;
+        card.querySelector(".preview-image").src = game.preview;
+        card.querySelector(".preview-title").textContent = game.title;
+        card.querySelector(".preview-desc").textContent = game.desc;
+        card.querySelector(".preview-url").textContent = game.link.replace("https://", "");
     }
 }
 
-function jumpToSlide(index) {
-    if(index < 0) {
-        index = slides.length - 1;
-    }
-    else {
-        index = index % slides.length;
-    }
-
-    slideshow.scrollTo({left: index * slideshow.clientWidth});
+// Keep the hover preview at least 40px away from the sides of the page
+for (const card of document.querySelectorAll(".gameCard")) {
+    card.addEventListener("mouseenter", () => placePreview(card));
+    card.addEventListener("focus", () => placePreview(card));
 }
 
-function advanceSlide(step) {
-    jumpToSlide(currentSlide + step);
+function placePreview(card) {
+    const margin = 40;
+    const half = card.querySelector(".preview").offsetWidth / 2;
+    const cardBox = card.getBoundingClientRect();
+    const center = cardBox.left + cardBox.width / 2;
+    const pageWidth = document.documentElement.clientWidth;
+    const target = Math.min(Math.max(center, margin + half), pageWidth - margin - half);
+
+    card.style.setProperty("--shift", (target - center) + "px");
 }
 
-function updateProgress() {
-    for(let dot of progressDots) {
-        dot.classList.remove("active");
-    }
-    progressDots[currentSlide].classList.add("active");
+// Hero slideshow behind the logo, crossfades to the next image every 5 seconds
+const slides = document.querySelectorAll(".slideshow .slide");
+let currentSlide = 0;
+
+showSlide(0);
+setInterval(() => showSlide(currentSlide + 1), 5000);
+
+function showSlide(index) {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = index % slides.length;
+    slides[currentSlide].classList.add("active");
 }
+// Imprint and privacy policy popups; the footer links (and shared links) use #imprint / #privacy-policy
+const popups = document.querySelectorAll("dialog.popup");
 
-// Logic for navigating to game slide specified in URL fragment
-addEventListener("hashchange", () => { handleURLFragment() })
-
-function handleURLFragment() {
-    const fragment = location.hash.substring(1);
-
-    // Handle navigation to game slides
-    for (let i = 0; i < slides.length; i++) {
-        const slide = slides[i];
-        if (slide.id === fragment) {
-            jumpToSlide(i);
-            return;
+for (const popup of popups) {
+    // a click on the dimmed backdrop lands on the dialog itself, not its content
+    popup.addEventListener("click", (e) => { if (e.target === popup) popup.close(); });
+    popup.addEventListener("close", () => {
+        if (location.hash === "#" + popup.id) {
+            history.replaceState(null, "", location.pathname + location.search);
         }
-    }
-
-    // Handle navigation to popups
-    if(fragment === "imprint") {
-        showImprint();
-    }
-    else if(fragment === "privacy-policy") {
-        showPrivacyPolicy();
-    }
+    });
 }
 
-// Logic for showing popups
-const popupContainer = document.getElementById("popup-container")
-const body = document.querySelector("body");
+addEventListener("hashchange", openPopupFromHash);
+openPopupFromHash();
 
-popupContainer.addEventListener("click", function (e) {
-    if(e.target === this) {
-        closePopups()
-    }
-})
-
-function showPopupLayer() {
-    popupContainer.classList.add("active");
-    body.classList.add("no-scroll");
-}
-
-function showImprint() {
-    closePopups();
-    showPopupLayer();
-    document.getElementById("imprint").style.display = "block";
-}
-
-function showPrivacyPolicy() {
-    closePopups();
-    showPopupLayer()
-    document.getElementById("privacy-policy").style.display = "block";
-}
-
-function closePopups() {
-    for(const child of popupContainer.children) {
-        child.style.display = "none";
-        popupContainer.classList.remove("active");
-        body.classList.remove("no-scroll");
+function openPopupFromHash() {
+    const popup = document.getElementById(location.hash.substring(1));
+    if (popup && popup.matches("dialog.popup") && !popup.open) {
+        popup.showModal();
     }
 }
 
-// Logic for de-obfuscating e-mail addresses in href-attribute
-const emails = document.querySelectorAll(".obfuscated-email");
-for (const email of emails) {
-    const emailAddr = email.textContent.split("").reverse().join("");
-    email.href = "mailto:" + emailAddr
-    email.textContent = emailAddr
+// The e-mail address is stored reversed in the HTML to keep it away from simple scrapers
+for (const email of document.querySelectorAll(".obfuscated-email")) {
+    const address = email.textContent.split("").reverse().join("");
+    email.href = "mailto:" + address;
+    email.textContent = address;
 }

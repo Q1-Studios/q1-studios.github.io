@@ -1,0 +1,46 @@
+<svg width="1914" height="362" viewBox="0 0 1914 362" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+    <radialGradient id="sun-glow">
+        <stop offset="0.35" stop-color="#fdddce" stop-opacity="0.8"/>
+        <stop offset="0.6" stop-color="#fbac8e" stop-opacity="0.45"/>
+        <stop offset="1" stop-color="#fbac8e" stop-opacity="0"/>
+    </radialGradient>
+</defs>
+<style>
+    /* the sun slowly sinks behind the far range and rises again; its glow softly pulses */
+    .sun{ animation: sun-set 16s ease-in-out infinite alternate; }
+    .sun-glow{ transform-box: view-box; transform-origin: 560px 140px; animation: sun-glow 4s ease-in-out infinite alternate; }
+    @keyframes sun-set{ from{ transform: translateY(-8px); } to{ transform: translateY(32px); } }
+    @keyframes sun-glow{ from{ opacity: 0.7; transform: scale(0.94); } to{ opacity: 1; transform: scale(1.06); } }
+    @media (prefers-reduced-motion: reduce){ .sun, .sun-glow{ animation: none; } }
+</style>
+<!-- setting sun, half hidden behind the far range -->
+<g class="sun">
+    <circle class="sun-glow" cx="560" cy="140" r="140" fill="url(#sun-glow)"/>
+    <circle cx="560" cy="140" r="60" fill="#fdddce"/>
+</g>
+
+<!-- far range -->
+<path d="M0 232L120 196L220 214L380 95L470 150L560 132L760 38L900 150L1000 128L1250 58L1400 165L1500 148L1650 108L1780 176L1914 150V364H0Z" fill="#f1654a"/>
+<path d="M380 95L349 118L362 115L372 124L388 115L402 122L418 118Z" fill="#fdddce"/>
+<path d="M760 38L693 70L716 65L731 76L749 67L766 78L783 67L801 70Z" fill="#fdddce"/>
+<path d="M1250 58L1150 86L1176 82L1196 93L1216 84L1240 95L1262 84L1290 86Z" fill="#fdddce"/>
+<path d="M1650 108L1611 125L1626 122L1640 131L1656 122L1672 130L1690 129Z" fill="#fdddce"/>
+
+<!-- middle range -->
+<path d="M0 282L100 250L200 268L330 186L420 226L520 210L640 160L760 222L860 202L940 232L1100 242L1180 212L1330 150L1460 216L1560 200L1700 160L1820 222L1914 206V364H0Z" fill="#cb2145"/>
+
+<!-- near range with the main peak -->
+<path d="M0 330L90 300L160 318L250 268L330 290L420 262L520 300L600 280L700 240L790 255L880 180L950 120L1010 74L1050 96L1090 130L1170 170L1240 214L1320 236L1420 262L1500 250L1600 274L1700 265L1800 300L1914 290V364H0Z" fill="#2a102d"/>
+<path d="M1010 74L970 104L986 100L998 110L1013 100L1029 109L1044 101L1061 106L1050 96Z" fill="#7b1135"/>
+
+<!-- pine trees on the foothills -->
+<g fill="#2a102d">
+    <path d="M118 284L128 300H124L132 316H104L112 300H108Z"/>
+    <path d="M140 272L152 292H147L157 316H123L133 292H128Z"/>
+    <path d="M164 290L172 303H169L176 318H152L159 303H156Z"/>
+    <path d="M1724 250L1734 266H1730L1738 284H1710L1718 266H1714Z"/>
+    <path d="M1746 240L1758 260H1753L1763 286H1729L1739 260H1734Z"/>
+    <path d="M1770 258L1778 271H1775L1782 290H1758L1765 271H1762Z"/>
+</g>
+</svg>

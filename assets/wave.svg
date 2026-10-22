@@ -1,0 +1,4 @@
+<!-- wave of the hero edge, same color as the top of the games section; tiles seamlessly -->
+<svg width="1200" height="100" viewBox="0 0 1200 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 45C300 -5 900 95 1200 45V100H0Z" fill="#f37662"/>
+</svg>
