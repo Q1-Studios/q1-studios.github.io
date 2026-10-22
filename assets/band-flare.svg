@@ -1,0 +1,6 @@
+<!-- part of the profile band around the avatar, from "Vector 5 (3).svg" (x=496.196..863.196); never stretched.
+     The avatar circle fits at center (744.196,141), radius 141 in these units (its top is the band's top);
+     the lower edge sweeps into the circle tangentially and the rest of the outline runs hidden inside it -->
+<svg width="367" height="191" viewBox="496.196 0 367.0 191" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M496.196 114.495L496.196 42.499C500.074 42.020 503.908 41.523 507.696 41.007C585.708 30.3713 654.696 1.00682 730.196 0.00646151C805.696 -0.9939 863.196 114.495 863.196 114.495L744.196 191L611.7 189.2C596.3 146.9 549.2 115 496.196 114.495Z" fill="#000"/>
+</svg>

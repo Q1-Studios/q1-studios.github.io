@@ -2,7 +2,7 @@
 
 }
 body {
-    background-color:  #3D4955;
+    background-color:  #f37662;
     font-family: Tahoma, sans-serif;
     margin: 0;
     font-size: 1.5em;
@@ -137,76 +137,140 @@ div.team-box .team-member img {
     margin-top: 15px;
 }
 
+div.icon-defs {
+    display: none;
+}
+
+/* footer: continues the plum fade at the bottom of the page */
 footer {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    margin-top: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: center;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 20px 36px;
+    background-color: #1c0a1f;
+    color: #fdddce;
     font-size: 0.75em;
-    background-color: #1a1a1a;
+    text-align: center;
 }
-
-footer div.socials a {
-    display: inline-flex;
+footer p {
+    margin: 0;
+}
+footer .socials {
+    display: flex;
+    gap: 14px;
+}
+footer .socials a {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 10px;
-    border-radius: 20px;
-    color: #ffffff;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+footer .socials a:hover, footer .socials a:focus-visible {
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 0 0 3px #fdddce, 0 0 20px rgba(253,221,206,0.5);
+}
+footer .socials a:focus-visible {
+    outline: none;
+}
+footer .socials svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+}
+.socials-itch { background-color: #fa5c5c; }
+.socials-youtube { background-color: #ff0033; }
+.socials-github { background-color: #ffffff; }
+footer .socials .socials-github svg { fill: #1c0a1f; }
+footer .footer-links {
+    display: flex;
+    justify-content: center;
+}
+footer .footer-links a {
+    padding: 0 12px;
+    color: #b98a92;
     text-decoration: none;
 }
-
-a:hover:after {
-    padding-left: 10px;
+footer .footer-links a + a {
+    border-left: 1px solid #5b2a4a;
+}
+footer .footer-links a:hover, footer .footer-links a:focus-visible {
+    color: #fdddce;
+    text-decoration: underline;
 }
 
-a.socials-itch {
-    background-color: #fa5c5c;
+/* imprint and privacy policy popups (native <dialog>, opened via #imprint / #privacy-policy) */
+dialog.popup {
+    width: min(720px, calc(100vw - 40px));
+    max-height: calc(100vh - 40px);
+    padding: 0;
+    border: none;
+    border-radius: 24px;
+    background-color: #2a102d;
+    color: #fdddce;
+    box-shadow: 0 0 0 3px #ee4a40, 0 25px 65px rgba(0,0,0,0.5);
+    font-size: 0.75em;
+    line-height: 1.5;
 }
-
-a.socials-itch:hover {
-    background-color: #b64343;
+dialog.popup::backdrop {
+    background-color: rgba(28,10,31,0.6);
+    backdrop-filter: blur(4px);
 }
-
-a.socials-itch:hover:after {
-    content: "Itch.io";
+body:has(dialog.popup[open]) {
+    overflow: hidden;
 }
-
-a.socials-github {
-    background-color: #ffffff;
+.popup-content {
+    padding: 36px 40px 40px;
 }
-
-.socials a.socials-github svg {
-    fill: #000000;
+.popup h2, .popup h3 {
+    width: auto;
+    margin: 0 0 16px;
+    text-align: left;
+    color: white;
 }
-
-a.socials-github:hover {
-    background-color: #cccccc;
-    color: #000000;
+.popup h2 {
+    font-size: 1.8em;
 }
-
-a.socials-github:hover:after {
-    content: "GitHub";
+.popup h3 {
+    margin-top: 24px;
 }
-
-a.socials-youtube {
-    background-color: #ff0033;
+.popup p {
+    margin: 0;
 }
-
-a.socials-youtube:hover {
-    background-color: #c10029;
+#privacy-policy p {
+    text-align: justify;
 }
-
-a.socials-youtube:hover:after {
-    content: "YouTube";
+.popup-content a {
+    color: #f8a078;
 }
-
-.socials a svg {
-    fill: #ffffff;
-    width: 20px;
+.popup-content a:hover {
+    color: #fdddce;
+}
+.popup-close {
+    float: right;
+    width: 40px;
+    height: 40px;
+    margin: -8px -12px 0 0;
+    padding: 8px;
+    border: none;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+}
+.popup-close svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: #fdddce;
+}
+.popup-close:hover {
+    background-color: #480a2f;
+}
+.popup-close:hover svg {
+    fill: #ee4a40;
 }
 
 div.slideshow-container {
@@ -220,7 +284,8 @@ div.slideshow {
     position: relative;
     text-align: center;
     width: 100%;
-    height: 80vh;
+    /* shorter on portrait phones, so the hero doesn't fill the whole screen */
+    height: min(80vh, 120vw);
     background-color: #000000;
 }
 #backblurr{
@@ -228,30 +293,74 @@ div.slideshow {
     width: 100%;
     height: 100%;
     z-index: 10;
-    background-color:rgba(32,57,79,0.4);
+    background-color:rgba(72,10,47,0.35);
     backdrop-filter: blur(7px);
+    /* logo and title centered above the curve */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5vw;
+    box-sizing: border-box;
 }
-/* logo and title scale with the window (whichever side is tighter), so the hero looks the same on every screen */
+/* logo and title scale with the window (whichever side is tighter), so the hero looks the same on every screen;
+   logo.svg has wide empty margins, so it may be wider than a phone screen */
 #backblurr img{
     background-color: rgba(32,57,79,0);
-    height: min(38.4vh, 27vw);
-    max-width: 100%;
+    flex: none;
+    width: min(142vh, 150vw);
 }
 #backblurr h1{
-    font-size: min(6.7vh, 4.2vw);
+    margin: 0.2em 0 0;
+    font-size: min(6.7vh, 8vw);
 }
+/* edge between the hero and the games: the hero image blurs and fades into the sky color,
+   and one soft wave drifts slowly through the fade so the blur shifts a little.
+   The wave strip is 240% of the page wide with the wave tiled twice, so moving it by half its
+   width loops without a seam. It starts 10% left of the page and reaches 40px below the hero,
+   so the blurred (soft) edges of the strip itself are never visible - only the wave crest. */
 #curve{
     position: absolute;
     z-index: 11;
     bottom: 0;
-    background-color: rgba(32,57,79,0);
+    left: 0;
     width: 100%;
+    height: clamp(70px, 10vw, 160px);
+    pointer-events: none;
 }
-#curve img{
-    display: block;
-    width: 100%;
-    /* curve.svg has a slanted bottom edge; hide it below the slideshow (% scales with the width) */
-    margin-bottom: -2%;
+#curve::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 130%;
+    background: linear-gradient(rgba(243,118,98,0), rgba(243,118,98,0.55) 45%, #f37662 85%);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    -webkit-mask: linear-gradient(transparent, black 45%);
+    mask: linear-gradient(transparent, black 45%);
+}
+.wave{
+    position: absolute;
+    bottom: -40px;
+    left: -10%;
+    width: 240%;
+    height: calc(55% + 40px);
+    /* the wave keeps its shape; a strip in the wave's color fills the extra 40px below it */
+    background-image: url(assets/wave.svg), linear-gradient(#f37662, #f37662);
+    background-repeat: repeat-x, no-repeat;
+    background-size: 50% calc(100% - 40px), 100% 40px;
+    background-position: 0 0, 0 100%;
+    filter: blur(12px);
+    animation: wave-drift 20s linear infinite;
+}
+@keyframes wave-drift{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+    .wave{ animation: none; }
 }
 .slide img {
     position: absolute;
@@ -261,10 +370,23 @@ div.slideshow {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    /* reset the zoom only after the slide has faded out */
+    transition: transform 0s 1.5s;
 }
 
+/* slides crossfade into each other and zoom in slowly while shown */
 .slide {
-    display: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+.slide.active {
+    opacity: 1;
+}
+.slide.active img {
+    transform: translate(-50%, -50%) scale(1.08);
+    transition: transform 6.5s linear;
 }
 
 .slide .slide-annotation {
@@ -343,10 +465,13 @@ div.slideshow {
     background-color: rgba(0,0,0,0.8);
 }
 .gameCard{
+    --glow: #fdddce; /* sun color from the sunset palette */
+    position: relative;
     flex: 0 1 315px;
     min-width: 0;
+    text-decoration: none;
 }
-.gameCard img{
+.gameCard .game-logo{
     display: block;
     width: 100%;
     height: auto;
@@ -354,11 +479,58 @@ div.slideshow {
     transition: all 0.3s ease;
     filter: grayscale(100%);
 }
-
-.gameCard img:hover{
-    transition: all 0.3s ease;
+/* glow in the sun color (--glow) */
+.gameCard:hover .game-logo, .gameCard:focus-visible .game-logo{
     filter: grayscale(0%);
-    scale: 1.25;
+    box-shadow: 0 0 30px 6px var(--glow);
+}
+
+/* website preview that grows out of the card on hover; index.js shifts it (--shift) to stay off the page sides */
+.preview{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 30;
+    width: min(360px, calc(100vw - 80px));
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #2a102d;
+    box-shadow: 0 0 0 2px var(--glow), 0 0 45px 4px color-mix(in srgb, var(--glow) 60%, transparent), 0 12px 40px rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(calc(-50% + var(--shift, 0px)), -50%) scale(0.4);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.gameCard:hover .preview, .gameCard:focus-visible .preview{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(calc(-50% + var(--shift, 0px)), -50%) scale(1);
+}
+.preview-image{
+    display: block;
+    width: 100%;
+    aspect-ratio: 630 / 500;
+    object-fit: cover;
+}
+.preview-text{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 18px 16px;
+    text-align: left;
+}
+.preview-title{
+    font-family: Bungee, serif;
+    font-size: 0.8em;
+    color: white;
+}
+.preview-desc{
+    font-size: 0.65em;
+    color: #f6c3b0;
+}
+.preview-url{
+    font-size: 0.55em;
+    color: #f8a078;
 }
 #gameSlider{
     position: relative;
@@ -367,76 +539,147 @@ div.slideshow {
     gap:60px;
     padding: 0 80px;
 }
+/* fewer cards on smaller screens; the arrows still move one game at a time */
+@media (max-width: 1200px){
+    #gameSlider{ gap: 30px; }
+    .gameCard:nth-of-type(n+4){ display: none; }
+}
+@media (max-width: 600px){
+    #gameSlider{ padding: 0 70px; }
+    .gameCard:nth-of-type(n+2){ display: none; }
+}
+/* touch screens have no hover, so a tap opens the game right away */
+@media (hover: none){
+    .preview{ display: none; }
+}
 #prevBtn{
     left:20px;
 }
 #nextBtn{right: 20px;}
+/* slider arrows: plum circles with a sun-colored chevron, magenta on hover */
 .nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: white;
-    border: 1px solid #e2e8f0;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: none;
     border-radius: 50%;
+    background-color: #480a2f;
+    box-shadow: 0 0 0 2px rgba(253,221,206,0.35), 0 6px 16px rgba(42,16,45,0.35);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 20;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-
+.nav-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: #fdddce;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
 .nav-btn:hover {
-    background: #f8fafc;
-    color: #3b82f6;
-    border-color: #3b82f6;
+    background-color: #cb2145;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 0 0 2px #fdddce, 0 0 24px rgba(253,221,206,0.6);
+}
+.nav-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+.nav-btn:focus-visible {
+    outline: 3px solid #fdddce;
+    outline-offset: 3px;
 }
 
-.nav-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
+/* dots below the slider; the games currently shown are wide sun-colored pills */
+#sliderDots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 24px 0 8px;
+}
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(72,10,47,0.45);
+    cursor: pointer;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+.slider-dot:hover {
+    background-color: #cb2145;
+}
+.slider-dot.active {
+    width: 28px;
+    background-color: #fdddce;
+    box-shadow: 0 0 0 2px #480a2f;
+}
+.slider-dot:focus-visible {
+    outline: 3px solid #fdddce;
+    outline-offset: 2px;
 }
 #Chibi{
-    background-color:#222D39;
+    background-color:#2a102d;
     /* keep the heading margin inside, so there is no gap below the mountain */
     display: flow-root;
 }
+/* sunset sky behind the games and the hills */
+.games{
+    background: linear-gradient(#f37662, #f69471);
+}
+.games h2{
+    color: #480a2f;
+}
 #mountain{
     display: flex;
-
+    background: linear-gradient(#f69471, #f8a078 45%);
+}
+/* on narrow screens the mountain keeps a minimum size and its sides are cropped, so it doesn't become a thin strip */
+#mountain{
+    justify-content: center;
+    overflow: hidden;
 }
 #mountain img{
-    width: 100%;
+    flex: none;
+    width: max(100%, 640px);
     position: relative;
     top:1px;
     height: auto;
 }
 #team{
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 40px 20px 80px;
 }
 /* avatar on the left, then on the right for every second person */
 .person{
+    --band: #ee4a40;
     display: grid;
-    grid-template-columns: 190px 1fr 190px;
+    grid-template-columns: 230px 1fr 230px;
     column-gap: 30px;
-    align-items: center;
+    align-items: start;
 }
 .person + .person{
-    margin-top: -20px;
+    margin-top: 30px;
 }
 .person img{
+    position: relative;
+    z-index: 1;
     grid-column: 1;
     grid-row: 1;
-    width: 190px;
+    width: 230px;
     aspect-ratio: 1;
     object-fit: cover;
     border-radius: 50%;
-    border: 5px solid white;
+    border: 14px solid var(--band);
     box-sizing: border-box;
 }
 .person:nth-child(even) img{
@@ -446,18 +689,65 @@ div.slideshow {
     grid-column: 2;
     grid-row: 1;
 }
-.person-head{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
+.person:nth-child(odd) .person-info{
+    text-align: right;
 }
+
+/* the avatar sits in a band ("Vector 5 (3).svg") that carries the name and skills. The band is two masks:
+   band-flare.svg (fixed 299x156px around the avatar) and band-neck.svg (stretches to the name).
+   Scale: the avatar circle (230px) is radius 141 in the SVG with its top at the band's top,
+   centered 97px left of the band's end, so the head reaches 30px gap + 115px radius + 97px
+   under the avatar. */
+.person-head{
+    position: relative;
+    z-index: 0; /* keeps the band (::before) above the section, but below the avatar */
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    height: 156px;
+    /* the bio may start before the band ends: only the part beside the avatar dips that low */
+    margin-bottom: -46px;
+    margin-right: -242px;
+    padding: 0 0 0 30px;
+    box-sizing: border-box;
+}
+.person-head::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--band);
+    -webkit-mask: url(assets/band-flare.svg) right center / 299px 100% no-repeat,
+                  url(assets/band-neck.svg) left center / calc(100% - 297px) 100% no-repeat;
+    mask: url(assets/band-flare.svg) right center / 299px 100% no-repeat,
+          url(assets/band-neck.svg) left center / calc(100% - 297px) 100% no-repeat;
+}
+.person:nth-child(odd) .person-head{
+    flex-direction: row-reverse;
+    margin-right: 0;
+    margin-left: -242px;
+    padding: 0 30px 0 0;
+}
+.person:nth-child(odd) .person-head::before{
+    transform: scaleX(-1);
+}
+/* skills in one row after the name, on the band (their center matches the name's, 63px down) */
+.person-head .skill{
+    margin-top: 54px;
+    white-space: nowrap;
+}
+/* the name sits on the band's rounded end (its center is 63px below the band's top) */
 .person h4{
-    margin: 0 6px 0 0;
+    flex: none;
+    margin: 41px 4px 0 0;
+    line-height: 44px;
     font-family: Bungee, serif;
     font-size: 1.3em;
     font-weight: normal;
     color: white;
+}
+.person-head .skill{
+    white-space: nowrap;
 }
 .person p{
     margin: 10px 0 0;
@@ -473,18 +763,23 @@ div.slideshow {
     font-size: 0.5em;
     color: white;
 }
-.skill.coding{ background-color: #5cb85c; }
-.skill.art{ background-color: #c8783a; }
-.skill.music{ background-color: #b5474b; }
-.skill.sound{ background-color: #4fb0d8; }
+/* skill colors from the sunset palette, outlined so they also show on the plum background */
+.skill{
+    box-shadow: 0 0 0 1px rgba(253,221,206,0.4);
+}
+.skill.coding{ background-color: #7b1135; }
+.skill.art{ background-color: #fdddce; color: #480a2f; }
+.skill.music{ background-color: #cb2145; }
+.skill.sound{ background-color: #480a2f; }
 
 /* fade out at the bottom of the page, scales with the window width */
 #fade{
     height: clamp(120px, 12.5vw, 320px);
-    background: linear-gradient(#222D39, #19222B 28%);
+    background: linear-gradient(#2a102d, #1c0a1f 28%);
 }
 
-@media (max-width: 700px){
+/* below 1000px the name and skills no longer fit on the band in one row, so the team stacks */
+@media (max-width: 999px){
     .person, .person + .person{
         grid-template-columns: 1fr;
         justify-items: center;
@@ -495,10 +790,35 @@ div.slideshow {
         grid-column: 1;
         grid-row: auto;
     }
-    .person-info{
+    .person img{
+        margin-top: 0;
+    }
+    .person-info, .person:nth-child(odd) .person-info{
         margin-top: 15px;
+        text-align: center;
+    }
+    /* stacked layout: no band, the name gets its own pill and the skills sit beside it */
+    .person-head, .person:nth-child(odd) .person-head{
+        height: auto;
+        margin: 0;
+        padding: 0;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .person-head::before{
+        display: none;
     }
     .person-head{
-        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .person-head .skill{
+        margin-top: 0;
+    }
+    .person h4, .person:nth-child(odd) h4{
+        margin: 0 4px;
+        padding: 0 18px;
+        border-radius: 22px;
+        background-color: var(--band);
     }
 }
